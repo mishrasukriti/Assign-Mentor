@@ -14,7 +14,7 @@
             <div class="col-4">
                 <h2>Create Student</h2>
                 
-                <form class="p-2" onsubmit="createStudent()">
+                <form class="p-2" onsubmit="return createStudent()">
                     <div class="form-group">
                         <label for="studentName">Student Name</label>
                         <input type="text" class="form-control" placeholder="Enter student name" id="studentName" required>
@@ -23,14 +23,14 @@
                         <label for="studentEmail">Student EmailId:</label>
                         <input type="email" class="form-control" placeholder="Enter student email" id="studentEmail" required>
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick="createStudent">Submit</button>
+                    <button type="submit" class="btn btn-primary" >Submit</button>
                 </form>
             </div>
 
             <div class="col-4">
                 <h2>Create Mentor</h2>
                 
-                <form class="p-2" onsubmit="createMentor()">
+                <form class="p-2" onsubmit="return createMentor()">
                     <div class="form-group">
                         <label for="mentorName">Mentor Name:</label>
                         <input type="text" class="form-control" placeholder="Enter mentor name" id="mentorName" required>
@@ -39,83 +39,66 @@
                         <label for="mentorEmail">Mentor EmailId: </label>
                         <input type="email" class="form-control" placeholder="Enter mentor email" id="mentorEmail" required>
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick="createMentor">Submit</button>
+                    <button type="submit" class="btn btn-primary" >Submit</button>
                 </form>
             </div>
 
             <div class="col-4">
                 <h2>Change Mentor</h2>
-                <form class="p-2" onsubmit="changeMentor()">
+                <form class="p-2" onsubmit="return changeMentor()">
                     <div class="form-group">
                         <label for="studentSelectForChange">Select student to change mentor</label>
                         <select class="form-control" id="studentSelectForChange">
-                            <option>S1</option>
-                            <option>S2</option>
-                            <option>S3</option>
-                            <option>S4</option>
-                            <option>S5</option>
+                            <!-- <option>S1</option> -->
+                            <!-- <option value="" disabled selected hidden>Please Choose Student...</option> -->
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="mentorSelect">Select Mentor</label>
                         <select class="form-control" id="mentorSelectForChange">
-                            <option>M1</option>
-                            <option>M2</option>
-                            <option>M3</option>
-                            <option>M4</option>
-                            <option>M5</option>
+                            <option value="" disabled selected hidden>Please Choose Mentor...</option>
                         </select>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary" onclick="changeMentor">Submit</button>
+                    <button type="submit" class="btn btn-primary" >Submit</button>
                 </form>
             </div>
         </div>
 
         <br>
         <div class="row">
-            <h2>Assign students to Mentor</h2>
-            <form onsubmit="assignStudentsToMentor()">
-                <div class="form-group">
-                <label for="mentorSelect">Select Mentor</label>
-                <select class="form-control" id="mentorSelect">
-                    <option>M1</option>
-                    <option>M2</option>
-                    <option>M3</option>
-                    <option>M4</option>
-                    <option>M5</option>
-                </select>
-                </div>
-                <div class="form-group">
-                <label for="studentsSelect">Select Multiple students</label>
-                <select multiple class="form-control" id="studentsSelect">
-                    <option>S1</option>
-                    <option>S2</option>
-                    <option>S3</option>
-                    <option>S4</option>
-                    <option>S5</option>
-                </select>
-                </div>
-                <button type="submit" class="btn btn-primary" onclick="assignStudentsToMentor">Submit</button>
-            </form>
+            <div class="col-6">
+                <h2 >Assign students to Mentor</h2>
+                <form class="p-2" onsubmit="return assignStudentsToMentor()">
+                    <div class="form-group">
+                    <label for="mentorSelect">Select Mentor</label>
+                    <select class="form-control" id="mentorSelect">
+                        <!-- <option>M5</option> -->
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="studentsSelect">Select Multiple students</label>
+                    <select multiple class="form-control" id="studentsSelect">
+                        <!-- <option>S5</option> -->
+                    </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" >Submit</button>
+                </form>
+            </div>
         </div>
 
         <br>
         <div class="row">
             <div class="col-4">
                 <h2 class="text-centre">Get Students from Mentor</h2>
-                <form onsubmit="getStudentsForMentor()">
+                <form class="p-2" onsubmit="getStudentsForMentor()">
                     <div class="form-group">
                         <label for="mentorSelectForGettingStudents">Select Mentor</label>
                         <select class="form-control" id="mentorSelectForGettingStudents">
-                        <option>M1</option>
-                        <option>M2</option>
-                        <option>M3</option>
-                        <option>M4</option>
-                        <option>M5</option>
+                        <!-- <option>M1</option> -->
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary" onclick="getStudents">Show</button>
+                    <button type="submit" class="btn btn-primary" >Show</button>
                 </form>
             </div>
 
@@ -134,6 +117,6 @@
         </div>
     
     </div>
-    <script src="helper.js"></script>
+    <script src="../helper.js"></script>
 </body>
 </html>
