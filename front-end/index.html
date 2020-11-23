@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Assign-Mentor</title>
+</head>
+<body>
+    <div class="container p-2">
+        <h1 style="text-align:center">Mentor And Student Assigning</h1>
+
+        <div class="row p-3">
+            <div class="col-4">
+                <h2>Create Student</h2>
+                
+                <form class="p-2" onsubmit="createStudent()">
+                    <div class="form-group">
+                        <label for="studentName">Student Name</label>
+                        <input type="text" class="form-control" placeholder="Enter student name" id="studentName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentEmail">Student EmailId:</label>
+                        <input type="email" class="form-control" placeholder="Enter student email" id="studentEmail" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="createStudent">Submit</button>
+                </form>
+            </div>
+
+            <div class="col-4">
+                <h2>Create Mentor</h2>
+                
+                <form class="p-2" onsubmit="createMentor()">
+                    <div class="form-group">
+                        <label for="mentorName">Mentor Name:</label>
+                        <input type="text" class="form-control" placeholder="Enter mentor name" id="mentorName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mentorEmail">Mentor EmailId: </label>
+                        <input type="email" class="form-control" placeholder="Enter mentor email" id="mentorEmail" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="createMentor">Submit</button>
+                </form>
+            </div>
+
+            <div class="col-4">
+                <h2>Change Mentor</h2>
+                <form class="p-2" onsubmit="changeMentor()">
+                    <div class="form-group">
+                        <label for="studentSelectForChange">Select student to change mentor</label>
+                        <select class="form-control" id="studentSelectForChange">
+                            <option>S1</option>
+                            <option>S2</option>
+                            <option>S3</option>
+                            <option>S4</option>
+                            <option>S5</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mentorSelect">Select Mentor</label>
+                        <select class="form-control" id="mentorSelectForChange">
+                            <option>M1</option>
+                            <option>M2</option>
+                            <option>M3</option>
+                            <option>M4</option>
+                            <option>M5</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" onclick="changeMentor">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <h2>Assign students to Mentor</h2>
+            <form onsubmit="assignStudentsToMentor()">
+                <div class="form-group">
+                <label for="mentorSelect">Select Mentor</label>
+                <select class="form-control" id="mentorSelect">
+                    <option>M1</option>
+                    <option>M2</option>
+                    <option>M3</option>
+                    <option>M4</option>
+                    <option>M5</option>
+                </select>
+                </div>
+                <div class="form-group">
+                <label for="studentsSelect">Select Multiple students</label>
+                <select multiple class="form-control" id="studentsSelect">
+                    <option>S1</option>
+                    <option>S2</option>
+                    <option>S3</option>
+                    <option>S4</option>
+                    <option>S5</option>
+                </select>
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="assignStudentsToMentor">Submit</button>
+            </form>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col-4">
+                <h2 class="text-centre">Get Students from Mentor</h2>
+                <form onsubmit="getStudentsForMentor()">
+                    <div class="form-group">
+                        <label for="mentorSelectForGettingStudents">Select Mentor</label>
+                        <select class="form-control" id="mentorSelectForGettingStudents">
+                        <option>M1</option>
+                        <option>M2</option>
+                        <option>M3</option>
+                        <option>M4</option>
+                        <option>M5</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="getStudents">Show</button>
+                </form>
+            </div>
+
+            <div class="col-8">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Name</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    
+    </div>
+    <script src="helper.js"></script>
+</body>
+</html>
