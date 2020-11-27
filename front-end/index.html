@@ -69,16 +69,16 @@
         <div class="row">
             <div class="col-6">
                 <h2 >Assign students to Mentor</h2>
-                <form class="p-2" onsubmit="return assignStudentsToMentor()">
+                <form class="p-2" onsubmit="return assignSelectedStudentsToMentor()">
                     <div class="form-group">
                     <label for="mentorSelect">Select Mentor</label>
-                    <select class="form-control" id="mentorSelect">
+                    <select class="form-control" name="mentorSelect" id="mentorSelect">
                         <!-- <option>M5</option> -->
                     </select>
                     </div>
                     <div class="form-group">
                     <label for="studentsSelect">Select Multiple students</label>
-                    <select multiple class="form-control" id="studentsSelect">
+                    <select multiple name="studentsSelect" class="form-control" id="studentsSelect">
                         <!-- <option>S5</option> -->
                     </select>
                     </div>
@@ -91,7 +91,7 @@
         <div class="row">
             <div class="col-4">
                 <h2 class="text-centre">Get Students from Mentor</h2>
-                <form class="p-2" onsubmit="getStudentsForMentor()">
+                <form class="p-2" onsubmit="return getStudentsForMentor()">
                     <div class="form-group">
                         <label for="mentorSelectForGettingStudents">Select Mentor</label>
                         <select class="form-control" id="mentorSelectForGettingStudents">
@@ -103,7 +103,7 @@
             </div>
 
             <div class="col-8">
-                <table class="table">
+                <table class="table" id="table">
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col">Name</th>

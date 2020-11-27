@@ -131,10 +131,10 @@ app.post("/add-mentor", async(req,res)=>{
 app.put("/change-mentor/:studentName", async(req,res)=>{
     try{
         let client = await mongoClient.connect(dbUrl);
-        let db = client.db("studentDetails");
+        let db = client.db("studentMentorDetails");
 
-        // let result = await db.collection("student").findOneAndUpdate({"name": req.params.studentName},{$set: {"mentorAssigned":req.body.mentorAssigned}});
-        let result = await db.collection("student").findOneAndUpdate({"name": req.params.studentName},{$set: req.body});
+        let result = await db.collection("student").findOneAndUpdate({"name": req.params.studentName},{$set: {"mentorAssigned":req.body.mentorAssigned}});
+        //let result = await db.collection("student").findOneAndUpdate({name: req.params.studentName},{$set: req.body});
         console.log("updating check log");
         res.status(200).json({message:"Mentor Updated successfully", result});
         client.close();
@@ -148,8 +148,8 @@ app.put("/change-mentor/:studentName", async(req,res)=>{
 app.put("/assign-students/:mentorName", async(req,res)=>{
     try{
         let client = await mongoClient.connect(dbUrl);
-        let db = client.db("studentDetails");
-        let result = await db.collection("mentor").findOneAndUpdate({"name": req.params.mentorName},{$set:req.body});
+        let db = client.db("studentMentorDetails");
+        let result = await db.collection("mentor").findOneAndUpdate({"name": req.params.mentorName},{$set:{"studentList":req.body.studentList}});
 
         res.status(200).json({message:"Students Assigned successfully",result});
         client.close();
