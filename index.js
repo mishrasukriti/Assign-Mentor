@@ -21,6 +21,7 @@ app.get("/get-students", async(req,res)=>{
         let client = await mongoClient.connect(dbUrl);
         let db = client.db("studentMentorDetails");
         let result = await db.collection("student").find().toArray();
+        console.log("Inside get all student  API");
         res.status(200).json({message:"All student data is", result});
         client.close();
         
@@ -52,7 +53,7 @@ app.get("/get-student/:studentName", async (req, res) => {
       let db = client.db("studentMentorDetails");
       let result = await db.collection("student").findOne({"name":req.params.studentName});
       console.log("Inside get student by studentName API");
-      res.status(200).json({result});
+      res.status(200).json({message:"Found student data is", result});
       client.close();
     } catch (error) {
       console.log(error);
