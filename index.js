@@ -15,6 +15,22 @@ app.use(cors());
 
 app.listen(port, ()=> console.log(`your app is running on port ${port}`));
 
+app.get("/", async(req,res)=>{
+    try{
+        let client = await mongoClient.connect(dbUrl);
+        let db = client.db("studentMentorDetails");
+        let result = await db.collection("student").find().toArray();
+        console.log("Inside empty  API");
+        res.status(200).json({message:"Your app is working fine"}
+        );
+        client.close();
+        
+    }
+    catch(error){
+        console.log(error);
+        res.send(500);
+    }
+});
 
 app.get("/get-students", async(req,res)=>{
     try{
@@ -22,7 +38,8 @@ app.get("/get-students", async(req,res)=>{
         let db = client.db("studentMentorDetails");
         let result = await db.collection("student").find().toArray();
         console.log("Inside get all student  API");
-        res.status(200).json({message:"All student data is", result});
+        res.status(200).json({message:"All student data is", result}
+        );
         client.close();
         
     }
